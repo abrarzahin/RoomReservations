@@ -1,9 +1,10 @@
 package com.abrarzahin.landon.data.repository;
 
+import com.abrarzahin.landon.data.entity.Room;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RoomRepository extends CrudRepository<com.abrarzahin.landon.data.entity.Room,Long> {
-    com.abrarzahin.landon.data.entity.Room findByNumber(String number);
+public interface RoomRepository extends CrudRepository<Room, Long>{
+    Room findByNumber(String number);
 }
