@@ -2,7 +2,6 @@ package com.abrarzahin.landon.web.application;
 
 import com.abrarzahin.landon.business.domain.RoomReservation;
 import com.abrarzahin.landon.business.service.ReservationService;
-import junit.framework.JUnit4TestAdapter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,8 +47,7 @@ public class ReservationControllerTest {
         mockRoomReservation.setRoomName("JUnit Room");
         mockReservationList.add(mockRoomReservation);
 
-        given(reservationService.getRoomReservationsForDate(date)).willReturn(mockReservationList);
-        this.mockMvc.perform(get("/reservations?date=2017-01-01")).andExpect(status().isOk())
-                .andExpect(content().string(containsString("Test , JUnit")));
+        given(reservationService.getRoomReservationsForDate("2017-01-01")).willReturn(mockReservationList);
+        this.mockMvc.perform(get("/reservations?date=2017-01-01")).andExpect(status().isOk()).andExpect(content().string(containsString("Test, JUnit")));
     }
 }
